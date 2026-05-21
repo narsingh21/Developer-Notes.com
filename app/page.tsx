@@ -1,5 +1,6 @@
-import { Button } from './_component/Button';
-import { Header } from './_component/Header';
+import { Button } from '@/components/ui/button';
+
+
 
 export default function Home() {
   return (
