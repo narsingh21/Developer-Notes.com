@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Inter } from 'next/font/google';
+import { Geist, Geist_Mono, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import Navbar from '@/components/shared/navbar';
@@ -20,6 +20,11 @@ const inter = Inter({
   subsets: ['latin'],
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-jetbrains-mono',
+  subsets: ['latin'],
+});
+
 export const metadata: Metadata = {
   title: 'Developer Notes',
   description: 'Your go-to resource for coding tutorials and insights.',
@@ -33,10 +38,10 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={` ${inter.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className='min-h-full flex flex-col'>
+      <body className='min-h-full flex flex-col font-sans'>
         <ThemeProvider>
           <Navbar />
           <main className='flex-1'>{children}</main>
